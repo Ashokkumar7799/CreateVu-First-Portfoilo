@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   description: "Computer Vision Scientist & AI Engineer Portfolio",
 };
 
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
