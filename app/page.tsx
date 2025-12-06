@@ -1,27 +1,34 @@
 "use client";
 
 import { navItems } from "@/data";
+import dynamic from "next/dynamic";
 
 import Hero from "@/components/Hero";
-import Grid from "@/components/Grid";
-import Footer from "@/components/Footer";
-import Clients from "@/components/Clients";
-import Approach from "@/components/Approach";
-import Experience from "@/components/Experience";
-import RecentProjects from "@/components/RecentProjects";
+import Profile from "@/components/Profile";
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
+
+// Lazy load heavy components to improve initial page load
+const Grid = dynamic(() => import("@/components/Grid"), { 
+  loading: () => <div className="h-screen" />,
+});
+const RecentProjects = dynamic(() => import("@/components/RecentProjects"));
+const Experience = dynamic(() => import("@/components/Experience"));
+const Approach = dynamic(() => import("@/components/Approach"));
+const Clients = dynamic(() => import("@/components/Clients"));
+const Footer = dynamic(() => import("@/components/Footer"));
 
 const Home = () => {
   return (
     <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
-      <div className="max-w-7xl w-full">
+      <div className="max-w-7xl w-full relative z-10">
         <FloatingNav navItems={navItems} />
         <Hero />
+        <Profile />
         <Grid />
         <RecentProjects />
-        <Clients />
         <Experience />
         <Approach />
+        <Clients />
         <Footer />
       </div>
     </main>

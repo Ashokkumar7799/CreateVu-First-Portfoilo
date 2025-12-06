@@ -2,22 +2,22 @@ import React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 import { CanvasRevealEffect } from "./ui/CanvasRevealEffect";
+import StarField from "./ui/StarField";
 
 const Approach = () => {
   return (
-    <section className="w-full py-20">
+    <section className="relative w-full py-20">
+      <StarField />
       <h1 className="heading">
-        My <span className="text-purple">approach</span>
+        My <span className="text-purple">development approach</span>
       </h1>
       {/* remove bg-white dark:bg-black */}
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center w-full gap-4">
         {/* add des prop */}
         <Card
-          title="Planning & Strategy"
+          title="Research & Requirements"
           icon={<AceternityIcon order="Phase 1" />}
-          des="We'll collaborate to map out your website's goals, target audience, 
-          and key functionalities. We'll discuss things like site structure, 
-          navigation, and content requirements."
+          des="Deep dive into problem analysis, hardware-software integration requirements, and optimal AI model selection. Understanding constraints of embedded systems and real-time performance needs."
         >
           <CanvasRevealEffect
             animationSpeed={5.1}
@@ -26,11 +26,9 @@ const Approach = () => {
           />
         </Card>
         <Card
-          title="Development & Progress Update"
+          title="Design & Prototyping"
           icon={<AceternityIcon order="Phase 2" />}
-          des="Once we agree on the plan, I cue my lofi playlist and dive into
-          coding. From initial sketches to polished code, I keep you updated
-          every step of the way."
+          des="Creating system architecture, selecting appropriate sensors and actuators, designing control algorithms. Building ROS-based simulations and testing in Gazebo/RViz environments."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -48,11 +46,9 @@ const Approach = () => {
           {/* <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" /> */}
         </Card>
         <Card
-          title="Development & Launch"
+          title="Development & Deployment"
           icon={<AceternityIcon order="Phase 3" />}
-          des="This is where the magic happens! Based on the approved design, 
-          I'll translate everything into functional code, building your website
-          from the ground up."
+          des="Implementing computer vision pipelines, optimizing models for edge devices, integrating with embedded platforms. Rigorous testing, validation, and deployment to production environments."
         >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -124,7 +120,7 @@ const Card = ({
         </div>
         <h2
           // change text-3xl, add text-center
-          className="dark:text-white text-center text-3xl opacity-0 group-hover/canvas-card:opacity-100
+          className="dark:text-white text-center text-2xl opacity-0 group-hover/canvas-card:opacity-100
          relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white 
          group-hover/canvas-card:-translate-y-2 transition duration-200"
         >
@@ -132,7 +128,7 @@ const Card = ({
         </h2>
         {/* add this one for the description */}
         <p
-          className="text-sm opacity-0 group-hover/canvas-card:opacity-100
+          className="text-xs sm:text-sm opacity-0 group-hover/canvas-card:opacity-100
          relative z-10 mt-4 group-hover/canvas-card:text-white text-center
          group-hover/canvas-card:-translate-y-2 transition duration-200"
           style={{ color: "#E4ECFF" }}
@@ -158,7 +154,7 @@ const AceternityIcon = ({ order }: { order: string }) => {
         />
         <span
           className="inline-flex h-full w-full cursor-pointer items-center 
-        justify-center rounded-full bg-slate-950 px-5 py-2 text-purple backdrop-blur-3xl font-bold text-2xl"
+        justify-center rounded-full bg-slate-950 px-5 py-2 text-purple backdrop-blur-3xl font-bold text-xl"
         >
           {order}
         </span>

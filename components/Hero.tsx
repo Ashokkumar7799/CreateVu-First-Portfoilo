@@ -3,10 +3,16 @@ import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./MagicButton";
 import { Spotlight } from "./ui/Spotlight";
 import { TextGenerateEffect } from "./ui/TextGenerateEffect";
+import StarField from "./ui/StarField";
+import { ScrollDown } from "./ui/ScrollDown";
+
 
 const Hero = () => {
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-20 pt-24 md:pt-36 relative min-h-screen flex flex-col">
+      {/* Star field animation */}
+      <StarField />
+      
       {/**
        *  UI: Spotlights
        *  Link: https://ui.aceternity.com/components/spotlight
@@ -40,10 +46,10 @@ const Hero = () => {
         />
       </div>
 
-      <div className="flex justify-center relative my-20 z-10">
+      <div className="flex justify-center relative my-12 md:my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-            Dynamic Web Magic with Next.js
+          <p className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-xl">
+            Bridging the Gap Between Hardware and Software
           </p>
 
           {/**
@@ -52,12 +58,12 @@ const Hero = () => {
            *  change md:text-6xl, add more responsive code
            */}
           <TextGenerateEffect
-            words="Transforming Concepts into Seamless User Experiences"
-            className="text-center text-[40px] md:text-5xl lg:text-6xl"
+            words="Building Intelligent Autonomous Systems for Tomorrow"
+            className="text-center text-[28px] sm:text-[32px] md:text-4xl lg:text-5xl leading-tight"
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-            Hi! I&apos;m Adrian, a Next.js Developer based in Croatia.
+          <p className="text-center md:tracking-wider mb-4 text-xs sm:text-sm md:text-base lg:text-xl px-4">
+            Hi! I&apos;m Ashok Kumar, a Computer Vision Scientist & AI Engineer based in Chennai.
           </p>
 
           <a href="#about">
@@ -69,6 +75,8 @@ const Hero = () => {
           </a>
         </div>
       </div>
+      
+      <ScrollDown />
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { IoCopyOutline } from "react-icons/io5";
+"use client";
 
-// Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
+import { useState, useMemo, useCallback } from "react";
+import { IoCopyOutline } from "react-icons/io5";
+import Lottie from "lottie-react";
 
 import { cn } from "@/lib/utils";
+
 
 
 import { BackgroundGradientAnimation } from "./GradientBg";
@@ -52,25 +53,18 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "Express", "Typescript"];
-  const rightLists = ["VueJS", "NuxtJS", "GraphQL"];
+  const leftLists = useMemo(() => ["Python", "PyTorch", "TensorFlow"], []);
+  const rightLists = useMemo(() => ["OpenCV", "YOLO", "ONNX"], []);
 
   const [copied, setCopied] = useState(false);
 
-  const defaultOptions = {
-    loop: copied,
-    autoplay: copied,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
-
-  const handleCopy = () => {
-    const text = "hsu@jsmastery.pro";
+  const handleCopy = useCallback(() => {
+    const text = "pashok949199@gmail.com";
     navigator.clipboard.writeText(text);
     setCopied(true);
-  };
+    // Auto-reset after 3 seconds
+    setTimeout(() => setCopied(false), 3000);
+  }, []);
 
   return (
     <div
@@ -180,7 +174,13 @@ export const BentoGridItem = ({
                   }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
-                <Lottie options={defaultOptions} height={200} width={400} />
+                {copied && (
+                  <Lottie 
+                    animationData={animationData} 
+                    loop={true}
+                    style={{ height: 200, width: 400 }}
+                  />
+                )}
               </div>
 
               <MagicButton

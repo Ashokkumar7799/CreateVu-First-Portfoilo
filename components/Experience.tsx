@@ -2,10 +2,12 @@ import React from "react";
 
 import { workExperience } from "@/data";
 import { Button } from "./ui/MovingBorders";
+import StarField from "./ui/StarField";
 
 const Experience = () => {
   return (
-    <div className="py-20 w-full">
+    <section className="relative w-full py-20">
+      <StarField />
       <h1 className="heading">
         My <span className="text-purple">work experience</span>
       </h1>
@@ -36,10 +38,10 @@ const Experience = () => {
                 className="lg:w-32 md:w-20 w-16"
               />
               <div className="lg:ms-5">
-                <h1 className="text-start text-xl md:text-2xl font-bold">
+                <h1 className="text-start text-lg md:text-xl font-bold">
                   {card.title}
                 </h1>
-                <p className="text-start text-white-100 mt-3 font-semibold">
+                <p className="text-start text-white-100 mt-3 font-semibold text-sm">
                   {card.desc}
                 </p>
               </div>
@@ -47,7 +49,7 @@ const Experience = () => {
           </Button>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
