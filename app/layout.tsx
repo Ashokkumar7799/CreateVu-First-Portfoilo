@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: "Ashok's Portfolio",
   description: "Computer Vision Scientist & AI Engineer Portfolio",
   icons: {
-    icon: '/logo1.png',
-    apple: '/logo1.png',
+    icon: '/logo.png',
+    apple: '/logo.png',
   },
 };
 
