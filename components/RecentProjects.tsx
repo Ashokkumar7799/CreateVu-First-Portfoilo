@@ -211,7 +211,7 @@ const RecentProjects = () => {
 
       <div className="mt-20">
         <VerticalTimeline>
-          {projects.map((item, index) => (
+          {[...projects].reverse().map((item, index) => (
             <ProjectCard key={item.id} item={item} index={index} />
           ))}
         </VerticalTimeline>
